@@ -1,5 +1,7 @@
 import React from 'react'
 import { FaSearch } from 'react-icons/fa';
+import OrderedList from './OrderList';
+
 
 const RecentOrders = () => {
   return (
@@ -20,6 +22,12 @@ const RecentOrders = () => {
 
             </div>
 
+        {/* Orders List */}
+        <div className='mt-4 px-6 overflow-y-scroll h-[300px] scrollbar-hide'>
+            <OrderedList />
+            <OrderedList />
+            <OrderedList />
+            </div>
         </div>
     </div>
   )
