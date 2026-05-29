@@ -23,7 +23,7 @@ const RecentOrders = () => {
             </div>
 
         {/* Orders List */}
-        <div className='mt-4 px-6 overflow-y-scroll h-[300px] scrollbar-hide'>
+        <div className='mt-4 px-6'>
             <OrderedList />
             <OrderedList />
             <OrderedList />
