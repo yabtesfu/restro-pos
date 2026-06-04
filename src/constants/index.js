@@ -1,66 +1,78 @@
 import { BiSolidDish } from 'react-icons/bi';
 import { MdCategory, MdTableBar } from 'react-icons/md';
 
+const foodImages = {
+  doroWot: 'https://commons.wikimedia.org/wiki/Special:FilePath/Injera%20and%20doro%20wat.jpg?width=600',
+  shiro: 'https://commons.wikimedia.org/wiki/Special:FilePath/Enjera%20be%20shiro%20wot.jpg?width=600',
+  tibs: 'https://commons.wikimedia.org/wiki/Special:FilePath/Siga%20Tibs.jpg?width=600',
+  chikinaTibs: 'https://commons.wikimedia.org/wiki/Special:FilePath/Ethiopia-%20Tibs%20Fitfit.jpg?width=600',
+  kitfo: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kitfo.jpg?width=600',
+  firfir: 'https://commons.wikimedia.org/wiki/Special:FilePath/Firfir.JPG?width=600',
+  injera: 'https://commons.wikimedia.org/wiki/Special:FilePath/Injera%20from%20ivory%20teff.jpg?width=600',
+  misirWot: 'https://commons.wikimedia.org/wiki/Special:FilePath/Misir%20Wot%20and%20Gomen%20Besiga%20-%20Abyssinia%2C%20Brighton.jpg?width=600',
+  coffee: 'https://commons.wikimedia.org/wiki/Special:FilePath/Ethiopian%20Coffee%20Ceremony.jpg?width=600',
+};
+
 export const popularDishes = [
     {
       id: 1,
-      image: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=120&q=80',
-      name: 'Butter Chicken',
-      numberOfOrders: 250,
+      image: foodImages.doroWot,
+      name: 'Doro Wot',
+      numberOfOrders: 320,
     },
     {
       id: 2,
-      image: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=120&q=80',
-      name: 'Palak Paneer',
-      numberOfOrders: 190,
+      image: foodImages.shiro,
+      name: 'Shiro Wot',
+      numberOfOrders: 275,
     },
     {
       id: 3,
-      image: 'https://images.unsplash.com/photo-1563379091339-03246963d4f9?auto=format&fit=crop&w=120&q=80',
-      name: 'Hyderabadi Biryani',
-      numberOfOrders: 300,
+      image: foodImages.tibs,
+      name: 'Siga Tibs',
+      numberOfOrders: 260,
     },
     {
       id: 4,
-      image: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=120&q=80',
-      name: 'Masala Dosa',
-      numberOfOrders: 220,
-    },
-    {
-      id: 5,
-      image: 'https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=120&q=80',
-      name: 'Chole Bhature',
-      numberOfOrders: 270,
-    },
-    {
-      id: 6,
-      image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=120&q=80',
-      name: 'Rajma Chawal',
-      numberOfOrders: 180,
-    },
-    {
-      id: 7,
-      image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=120&q=80',
-      name: 'Paneer Tikka',
+      image: foodImages.chikinaTibs,
+      name: 'Chikina Tibs',
       numberOfOrders: 210,
     },
     {
+      id: 5,
+      image: foodImages.kitfo,
+      name: 'Kitfo',
+      numberOfOrders: 240,
+    },
+    {
+      id: 6,
+      image: foodImages.firfir,
+      name: 'Injera Firfir',
+      numberOfOrders: 185,
+    },
+    {
+      id: 7,
+      image: foodImages.misirWot,
+      name: 'Misir Wot',
+      numberOfOrders: 205,
+    },
+    {
       id: 8,
-      image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=120&q=80',
-      name: 'Gulab Jamun',
-      numberOfOrders: 310,
+      image: foodImages.injera,
+      name: 'Extra Injera',
+      numberOfOrders: 300,
     },
     {
       id: 9,
-      image: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=120&q=80',
-      name: 'Poori Sabji',
-      numberOfOrders: 140,
+      image: foodImages.coffee,
+      name: 'Ethiopian Coffee',
+      numberOfOrders: 145,
     },
     {
       id: 10,
-      image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=120&q=80',
-      name: 'Rogan Josh',
-      numberOfOrders: 160,
+      image: foodImages.tibs,
+      name: 'Awaze Tibs',
+      numberOfOrders: 175,
     },
   ];
 
@@ -86,289 +98,332 @@ export const tables = [
 export const startersItem = [
     {
       id: 1,
-      name: "Paneer Tikka",
-      price: 250,
-      category: "Vegetarian"
+      name: "Sambusa",
+      price: 80,
+      category: "Starter",
+      image: foodImages.injera
     },
     {
       id: 2,
-      name: "Chicken Tikka",
-      price: 300,
-      category: "Non-Vegetarian"
+      name: "Timatim Salad",
+      price: 120,
+      category: "Starter",
+      image: foodImages.misirWot
     },
     {
       id: 3,
-      name: "Tandoori Chicken",
-      price: 350,
-      category: "Non-Vegetarian"
+      name: "Azifa",
+      price: 140,
+      category: "Starter",
+      image: foodImages.shiro
     },
     {
       id: 4,
-      name: "Samosa",
-      price: 100,
-      category: "Vegetarian"
+      name: "Kategna",
+      price: 110,
+      category: "Starter",
+      image: foodImages.injera
     },
     {
       id: 5,
-      name: "Aloo Tikki",
-      price: 120,
-      category: "Vegetarian"
+      name: "Chechebsa",
+      price: 160,
+      category: "Breakfast",
+      image: foodImages.firfir
     },
     {
       id: 6,
-      name: "Hara Bhara Kebab",
-      price: 220,
-      category: "Vegetarian"
+      name: "Extra Injera",
+      price: 35,
+      category: "Side",
+      image: foodImages.injera
     }
   ];
   
 export const mainCourse = [
   {
     id: 1,
-    name: "Butter Chicken",
-    price: 400,
-    category: "Non-Vegetarian"
+    name: "Doro Wot",
+    price: 420,
+    category: "Chicken",
+    image: foodImages.doroWot
   },
   {
     id: 2,
-    name: "Paneer Butter Masala",
-    price: 350,
-    category: "Vegetarian"
+    name: "Shiro Wot",
+    price: 220,
+    category: "Vegetarian",
+    image: foodImages.shiro
   },
   {
     id: 3,
-    name: "Chicken Biryani",
-    price: 450,
-    category: "Non-Vegetarian"
+    name: "Siga Tibs",
+    price: 480,
+    category: "Beef",
+    image: foodImages.tibs
   },
   {
     id: 4,
-    name: "Dal Makhani",
-    price: 180,
-    category: "Vegetarian"
+    name: "Chikina Tibs",
+    price: 520,
+    category: "Beef",
+    image: foodImages.chikinaTibs
   },
   {
     id: 5,
-    name: "Kadai Paneer",
-    price: 300,
-    category: "Vegetarian"
+    name: "Kitfo",
+    price: 560,
+    category: "Beef",
+    image: foodImages.kitfo
   },
   {
     id: 6,
-    name: "Rogan Josh",
+    name: "Awaze Tibs",
     price: 500,
-    category: "Non-Vegetarian"
+    category: "Beef",
+    image: foodImages.tibs
   }
 ];
 
 export const beverages = [
   {
     id: 1,
-    name: "Masala Chai",
-    price: 50,
-    category: "Hot"
+    name: "Ethiopian Coffee",
+    price: 70,
+    category: "Hot",
+    image: foodImages.coffee
   },
   {
     id: 2,
-    name: "Lemon Soda",
-    price: 80,
-    category: "Cold"
+    name: "Macchiato",
+    price: 85,
+    category: "Hot",
+    image: foodImages.coffee
   },
   {
     id: 3,
-    name: "Mango Lassi",
-    price: 120,
-    category: "Cold"
+    name: "Spiced Tea",
+    price: 45,
+    category: "Hot",
+    image: foodImages.coffee
   },
   {
     id: 4,
-    name: "Cold Coffee",
-    price: 150,
-    category: "Cold"
+    name: "Mango Juice",
+    price: 120,
+    category: "Cold",
+    image: foodImages.coffee
   },
   {
     id: 5,
-    name: "Fresh Lime Water",
-    price: 60,
-    category: "Cold"
+    name: "Spris",
+    price: 130,
+    category: "Cold",
+    image: foodImages.coffee
   },
   {
     id: 6,
-    name: "Iced Tea",
-    price: 100,
-    category: "Cold"
+    name: "Ambo Water",
+    price: 55,
+    category: "Cold",
+    image: foodImages.coffee
   }
 ];
 
 export const soups = [
   {
     id: 1,
-    name: "Tomato Soup",
-    price: 120,
-    category: "Vegetarian"
+    name: "Ye Dinich Wot",
+    price: 190,
+    category: "Vegetarian",
+    image: foodImages.shiro
   },
   {
     id: 2,
-    name: "Sweet Corn Soup",
-    price: 130,
-    category: "Vegetarian"
+    name: "Atkilt Wot",
+    price: 210,
+    category: "Vegetarian",
+    image: foodImages.misirWot
   },
   {
     id: 3,
-    name: "Hot & Sour Soup",
-    price: 140,
-    category: "Vegetarian"
+    name: "Misir Wot",
+    price: 230,
+    category: "Vegetarian",
+    image: foodImages.misirWot
   },
   {
     id: 4,
-    name: "Chicken Clear Soup",
-    price: 160,
-    category: "Non-Vegetarian"
+    name: "Alicha Wot",
+    price: 250,
+    category: "Mild",
+    image: foodImages.doroWot
   },
   {
     id: 5,
-    name: "Mushroom Soup",
-    price: 150,
-    category: "Vegetarian"
+    name: "Gomen",
+    price: 180,
+    category: "Vegetarian",
+    image: foodImages.misirWot
   },
   {
     id: 6,
-    name: "Lemon Coriander Soup",
-    price: 110,
-    category: "Vegetarian"
+    name: "Fasting Combo",
+    price: 340,
+    category: "Vegetarian",
+    image: foodImages.shiro
   }
 ];
 
 export const desserts = [
   {
     id: 1,
-    name: "Gulab Jamun",
-    price: 100,
-    category: "Vegetarian"
+    name: "Baklava",
+    price: 110,
+    category: "Dessert",
+    image: foodImages.coffee
   },
   {
     id: 2,
-    name: "Kulfi",
-    price: 150,
-    category: "Vegetarian"
+    name: "Rice Pudding",
+    price: 120,
+    category: "Dessert",
+    image: foodImages.coffee
   },
   {
     id: 3,
-    name: "Chocolate Lava Cake",
-    price: 250,
-    category: "Vegetarian"
+    name: "Honey Bread",
+    price: 95,
+    category: "Dessert",
+    image: foodImages.injera
   },
   {
     id: 4,
-    name: "Ras Malai",
-    price: 180,
-    category: "Vegetarian"
+    name: "Sweet Ambasha",
+    price: 90,
+    category: "Dessert",
+    image: foodImages.injera
   }
 ];
 
 export const pizzas = [
   {
     id: 1,
-    name: "Margherita Pizza",
-    price: 350,
-    category: "Vegetarian"
+    name: "Injera Firfir",
+    price: 210,
+    category: "Breakfast",
+    image: foodImages.firfir
   },
   {
     id: 2,
-    name: "Veg Supreme Pizza",
-    price: 400,
-    category: "Vegetarian"
+    name: "Egg Firfir",
+    price: 240,
+    category: "Breakfast",
+    image: foodImages.firfir
   },
   {
     id: 3,
-    name: "Pepperoni Pizza",
-    price: 450,
-    category: "Non-Vegetarian"
+    name: "Ful",
+    price: 180,
+    category: "Breakfast",
+    image: foodImages.shiro
   }
 ];
 
 export const alcoholicDrinks = [
   {
     id: 1,
-    name: "Beer",
-    price: 200,
-    category: "Alcoholic"
+    name: "Tej",
+    price: 180,
+    category: "Traditional",
+    image: foodImages.coffee
   },
   {
     id: 2,
-    name: "Whiskey",
-    price: 500,
-    category: "Alcoholic"
+    name: "Tella",
+    price: 120,
+    category: "Traditional",
+    image: foodImages.coffee
   },
   {
     id: 3,
-    name: "Vodka",
-    price: 450,
-    category: "Alcoholic"
+    name: "Draft Beer",
+    price: 160,
+    category: "Alcoholic",
+    image: foodImages.coffee
   },
   {
     id: 4,
-    name: "Rum",
-    price: 350,
-    category: "Alcoholic"
+    name: "Red Wine",
+    price: 220,
+    category: "Alcoholic",
+    image: foodImages.coffee
   },
   {
     id: 5,
-    name: "Tequila",
-    price: 600,
-    category: "Alcoholic"
+    name: "Areke",
+    price: 140,
+    category: "Traditional",
+    image: foodImages.coffee
   },
   {
     id: 6,
-    name: "Cocktail",
-    price: 400,
-    category: "Alcoholic"
+    name: "House Cocktail",
+    price: 260,
+    category: "Alcoholic",
+    image: foodImages.coffee
   }
 ];
 
 export const salads = [
   {
     id: 1,
-    name: "Caesar Salad",
-    price: 200,
-    category: "Vegetarian"
+    name: "Beyaynetu",
+    price: 360,
+    category: "Vegetarian",
+    image: foodImages.misirWot
   },
   {
     id: 2,
-    name: "Greek Salad",
-    price: 250,
-    category: "Vegetarian"
+    name: "Gomen Besiga",
+    price: 390,
+    category: "Beef",
+    image: foodImages.misirWot
   },
   {
     id: 3,
-    name: "Fruit Salad",
-    price: 150,
-    category: "Vegetarian"
+    name: "Bozena Shiro",
+    price: 310,
+    category: "Beef",
+    image: foodImages.shiro
   },
   {
     id: 4,
-    name: "Chicken Salad",
-    price: 300,
-    category: "Non-Vegetarian"
+    name: "Yebeg Alicha",
+    price: 520,
+    category: "Lamb",
+    image: foodImages.doroWot
   },
   {
     id: 5,
-    name: "Tuna Salad",
-    price: 350,
+    name: "Dulet",
+    price: 430,
+    category: "Beef",
+    image: foodImages.tibs
   
   }
 ];
 
 
 export const menus = [
-  { id: 1, name: "Starters", bgColor: "#b73e3e" ,icon: "🍲", items: startersItem },
-  { id: 2, name: "Main Course", bgColor: "#5b45b0" ,icon: "🍛", items: mainCourse },
-  { id: 3, name: "Beverages", bgColor: "#7f167f" ,icon: "🍹", items: beverages },
-  { id: 4, name: "Soups", bgColor: "#735f32" ,icon: "🍜", items: soups },
-  { id: 5, name: "Desserts", bgColor: "#1d2569" ,icon: "🍰", items: desserts },
-  { id: 6, name: "Pizzas", bgColor: "#285430" ,icon: "🍕", items: pizzas },
-  { id: 7, name: "Alcoholic Drinks", bgColor: "#b73e3e" ,icon: "🍺", items: alcoholicDrinks },
-  { id: 8, name: "Salads", bgColor: "#5b45b0" ,icon: "🥗", items: salads }
+  { id: 1, name: "Starters", bgColor: "#be3e3f", icon: "ST", items: startersItem },
+  { id: 2, name: "Wot & Tibs", bgColor: "#025cca", icon: "WT", items: mainCourse },
+  { id: 3, name: "Drinks", bgColor: "#02ca3a", icon: "DR", items: beverages },
+  { id: 4, name: "Fasting", bgColor: "#735f32", icon: "FS", items: soups },
+  { id: 5, name: "Desserts", bgColor: "#7f167f", icon: "DS", items: desserts },
+  { id: 6, name: "Breakfast", bgColor: "#285430", icon: "BR", items: pizzas },
+  { id: 7, name: "Traditional Drinks", bgColor: "#b73e3e", icon: "TD", items: alcoholicDrinks },
+  { id: 8, name: "Combos", bgColor: "#5b45b0", icon: "CB", items: salads }
 ]
 
 export const metricsData = [

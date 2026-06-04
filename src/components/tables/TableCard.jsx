@@ -2,12 +2,12 @@ import React from 'react'
 
 const tableColors = ['#025cca', '#be3e3f', '#02ca3a', '#f6b100'];
 
-const TableCard = ({ table }) => {
+const TableCard = ({ table, onClick }) => {
   const isBooked = table.status === 'Booked';
   const circleColor = tableColors[(table.id - 1) % tableColors.length];
 
   return (
-    <div className='relative h-[210px] bg-[#262626] rounded-lg p-6 cursor-pointer shadow-lg'>
+    <div onClick={onClick} className='relative h-[210px] bg-[#262626] rounded-lg p-6 cursor-pointer shadow-lg hover:bg-[#2b2b2b] transition-colors'>
       <div className='flex items-start justify-between'>
         <h2 className='text-[#f5f5f5] text-2xl font-bold'>{table.name}</h2>
         <p className={`${isBooked ? 'bg-[#2e4a40] text-[#02ca3a]' : 'bg-[#664a04] text-[#f5f5f5]'} px-3 py-2 rounded-lg text-lg font-semibold`}>

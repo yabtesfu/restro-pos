@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import BottomNav from '../components/shared/BottomNav'
 import BackButton from '../components/shared/BackButton';
 import TableCard from '../components/tables/TableCard';
@@ -6,6 +7,7 @@ import { tables } from '../constants';
 
 const Tables = () => {
 
+    const navigate = useNavigate();
     const [status, setStatus] = useState('all');
     const filteredTables = status === 'all'
       ? tables
@@ -27,7 +29,7 @@ const Tables = () => {
         <div className="grid grid-cols-5 gap-6 px-6 py-4 overflow-y-scroll scrollbar-hide h-[calc(100vh-5rem-5rem)]" >
 
         {filteredTables.map((table) => (
-          <TableCard key={table.id} table={table} />
+          <TableCard key={table.id} table={table} onClick={() => navigate('/menu')} />
         ))}
         </div>
         
