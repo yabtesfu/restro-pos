@@ -1,15 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaHome } from 'react-icons/fa'
 import { MdOutlineReorder } from 'react-icons/md'
 import { MdOutlineTableBar } from 'react-icons/md'
 import { CiCircleMore } from 'react-icons/ci'
 import { BiSolidDish } from 'react-icons/bi'
 import { useNavigate } from 'react-router-dom'
+import Modal from './Modal'
 
 
 const BottomNav = () => {
 
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [guestCount, setGuestCount] = useState(0);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  const increment = () => {
+    if(guestCount >= 6 ) return;
+    setGuestCount((prev) => prev + 1);
+  }
+  const decrement = () => setGuestCount((prev) => (prev > 0 ? prev - 1 : 0));
+
   return (
     <div className='fixed bottom-0 left-0 right-0 bg-[#262626] p-2 h-16 flex justify-around'>
         <button onClick={() => navigate('/home')} className='flex items-center justify-center text-[#f5f5f5] bg-[#343434] w-[200px] rounded-[20px]'><FaHome className="inline mr-2" size={20} />Home</button>
@@ -17,11 +29,37 @@ const BottomNav = () => {
         <button onClick={() => navigate('/tables')} className='flex items-center justify-center text-[#f5f5f5] bg-[#343434] w-[200px] rounded-[20px]'><MdOutlineTableBar className="inline mr-2" size={20} />Tables</button>
         <button onClick={() => navigate('/more')} className='flex items-center justify-center text-[#f5f5f5] bg-[#343434] w-[200px] rounded-[20px]'><CiCircleMore className="inline mr-2" size={20} />More</button>
 
-        <button onClick={() => navigate('/create-order')} className="absolute bottom-6 bg-[#343434] text-[#f6b100] p-3 rounded-full border border-[#4a4a4a] shadow-lg">
-            <BiSolidDish size={30} />
+        <button onClick={openModal} className="absolute bottom-6 bg-[#f6b100] text-[#f5f5f5] rounded-full p-4 items-center">
+            <BiSolidDish size={40} />
         </button>
+        
+        <Modal isOpen={isModalOpen} onClose={closeModal} title="Create Order">
+          <div>
+            <label className='block text-[#ababab] mb-2 text-sm font-medium'>Customer Name</label>
+            <div className='flex items-center rouneded-lg p-3 px-4 bg-[#1f1f1f]'>
+              <input type="text" name="" placeholder="Enter customer name" id="" className="bg-transparent flex-1 text-white focus:outline-none" />
+            </div>
+          </div>
+          <div>
+            <label className='block text-[#ababab] mb-2 mt-3 text-sm font-medium'>Customer Phone</label>
+            <div className='flex items-center rouneded-lg p-3 px-4 bg-[#1f1f1f]'>
+              <input type="number" name="" placeholder="+251912345678" id="" className="bg-transparent flex-1 text-white focus:outline-none" />
+            </div>
+          </div>
+          <div>
+            <label className='block mb-2 mt-3 text-sm font-medium text-[#ababab]'>Guest</label>
+            <div className='flex items-center justify-between rouneded-lg py-3 px-4 bg-[#1f1f1f]'>
+              <button onClick={decrement} className="text-yellow-500 text-2xl">&minus;</button>
+              <span className="text-white">{guestCount} Person</span>
+              <button onClick={increment} className="text-yellow-500 text-2xl">&#43;</button>
+            </div>
+          </div>
+          <button onClick={() => navigate("/tables")} className="w-full bg-[#f6b100] text-[#f5f5f5] py-3 rounded-lg mt-8 hover:bg-yellow-700">
+            Create Order
+          </button>
+        </Modal>
     </div>
-  )
-}
+  );
+};
 
 export default BottomNav
