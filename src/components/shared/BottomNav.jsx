@@ -5,23 +5,31 @@ import { MdOutlineTableBar } from 'react-icons/md'
 import { CiCircleMore } from 'react-icons/ci'
 import { BiSolidDish } from 'react-icons/bi'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import Modal from './Modal'
+import { setCustomer, setGuestCount } from '../../redux/orderSlice'
 
 
 const BottomNav = () => {
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const customer = useSelector((state) => state.order.customer);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [guestCount, setGuestCount] = useState(0);
+  const [customerName, setCustomerName] = useState(customer.name);
+  const [customerPhone, setCustomerPhone] = useState(customer.phone);
+  const [guestCount, setLocalGuestCount] = useState(customer.guests);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
   const increment = () => {
     if(guestCount >= 6 ) return;
-    setGuestCount((prev) => prev + 1);
+    setLocalGuestCount((prev) => prev + 1);
   }
-  const decrement = () => setGuestCount((prev) => (prev > 0 ? prev - 1 : 0));
+  const decrement = () => setLocalGuestCount((prev) => (prev > 0 ? prev - 1 : 0));
   const createOrder = () => {
+    dispatch(setCustomer({ name: customerName, phone: customerPhone }));
+    dispatch(setGuestCount(guestCount));
     closeModal();
     navigate("/tables");
   };
@@ -41,13 +49,25 @@ const BottomNav = () => {
           <div>
             <label className='block text-[#ababab] mb-2 text-sm font-medium'>Customer Name</label>
             <div className='flex items-center rounded-lg p-3 px-4 bg-[#1f1f1f]'>
-              <input type="text" name="" placeholder="Enter customer name" id="" className="bg-transparent flex-1 text-white focus:outline-none" />
+              <input
+                type="text"
+                placeholder="Enter customer name"
+                value={customerName}
+                onChange={(event) => setCustomerName(event.target.value)}
+                className="bg-transparent flex-1 text-white focus:outline-none"
+              />
             </div>
           </div>
           <div>
             <label className='block text-[#ababab] mb-2 mt-3 text-sm font-medium'>Customer Phone</label>
             <div className='flex items-center rounded-lg p-3 px-4 bg-[#1f1f1f]'>
-              <input type="number" name="" placeholder="+251912345678" id="" className="bg-transparent flex-1 text-white focus:outline-none" />
+              <input
+                type="tel"
+                placeholder="+251912345678"
+                value={customerPhone}
+                onChange={(event) => setCustomerPhone(event.target.value)}
+                className="bg-transparent flex-1 text-white focus:outline-none"
+              />
             </div>
           </div>
           <div>
