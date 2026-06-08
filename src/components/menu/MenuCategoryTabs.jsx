@@ -10,15 +10,14 @@ const MenuCategoryTabs = ({ menus, selectedMenuId, onSelect }) => {
           <button
             key={menu.id}
             onClick={() => onSelect(menu.id)}
-            className={`${isSelected ? 'bg-[#343434] text-[#f5f5f5]' : 'bg-[#262626] text-[#ababab] hover:bg-[#2f2f2f]'} flex items-center gap-3 rounded-lg px-4 py-3 text-left transition-colors`}
+            className='min-h-[96px] rounded-lg px-4 py-4 text-left text-[#f5f5f5] shadow-lg transition-transform hover:-translate-y-0.5'
+            style={{ backgroundColor: menu.bgColor }}
           >
-            <span
-              className='flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-sm font-bold text-[#f5f5f5]'
-              style={{ backgroundColor: menu.bgColor }}
-            >
-              {menu.icon}
-            </span>
-            <span className='font-semibold'>{menu.name}</span>
+            <div className='flex items-center justify-between'>
+              <span className='text-base font-bold'>{menu.icon} {menu.name}</span>
+              {isSelected && <span className='h-3 w-3 rounded-full border-2 border-[#f5f5f5]' />}
+            </div>
+            <p className='mt-5 text-sm font-semibold text-[#f5f5f5]/80'>{menu.items.length} Items</p>
           </button>
         )
       })}

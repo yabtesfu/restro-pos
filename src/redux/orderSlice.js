@@ -10,6 +10,8 @@ const initialState = {
   selectedTable: null,
   selectedMenuId: menus[0]?.id || 1,
   cartItems: [],
+  paymentMethod: 'Cash',
+  orders: [],
 };
 
 const orderSlice = createSlice({
@@ -70,6 +72,28 @@ const orderSlice = createSlice({
     clearCart: (state) => {
       state.cartItems = [];
     },
+    setPaymentMethod: (state, action) => {
+      state.paymentMethod = action.payload;
+    },
+    placeOrder: (state) => {
+      if (state.cartItems.length === 0) return;
+
+      const subtotal = state.cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      const tax = Math.round(subtotal * 0.15);
+
+      state.orders.push({
+        id: Date.now(),
+        customer: state.customer,
+        selectedTable: state.selectedTable,
+        cartItems: state.cartItems,
+        paymentMethod: state.paymentMethod,
+        subtotal,
+        tax,
+        total: subtotal + tax,
+        createdAt: new Date().toISOString(),
+      });
+      state.cartItems = [];
+    },
     resetOrder: () => initialState,
   },
 });
@@ -79,11 +103,13 @@ export const {
   clearCart,
   decreaseCartItem,
   increaseCartItem,
+  placeOrder,
   removeCartItem,
   resetOrder,
   selectTable,
   setCustomer,
   setGuestCount,
+  setPaymentMethod,
   setSelectedMenuId,
 } = orderSlice.actions;
 

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { menus } from '../../constants'
-import { addToCart, setSelectedMenuId } from '../../redux/orderSlice'
+import { addToCart, decreaseCartItem, setSelectedMenuId } from '../../redux/orderSlice'
 import MenuCategoryTabs from './MenuCategoryTabs'
 import MenuItemCard from './MenuItemCard'
 
@@ -18,6 +18,13 @@ const MenuContainer = () => {
     dispatch(addToCart({ menuId: selectedMenuId, item }));
   };
 
+  const handleIncrease = (cartKey, item) => {
+    const hasItem = cartKey && item;
+    if (hasItem) {
+      dispatch(addToCart({ menuId: selectedMenuId, item }));
+    }
+  };
+
   return (
     <div className='overflow-y-auto scrollbar-hide pr-2'>
       <MenuCategoryTabs
@@ -26,16 +33,16 @@ const MenuContainer = () => {
         onSelect={(menuId) => dispatch(setSelectedMenuId(menuId))}
       />
 
-      <div className='mt-6 flex items-center justify-between'>
-        <div>
-          <h2 className='text-[#f5f5f5] text-xl font-bold'>{selectedMenu.name}</h2>
-          <p className='text-[#ababab] text-sm'>{selectedMenu.items.length} dishes available</p>
-        </div>
-      </div>
-
-      <div className='mt-4 grid grid-cols-3 gap-5'>
+      <div className='mt-8 grid grid-cols-3 gap-4'>
         {selectedMenu.items.map((item) => (
-          <MenuItemCard key={item.id} item={item} onAdd={handleAddToCart} />
+          <MenuItemCard
+            key={item.id}
+            item={item}
+            cartKey={`${selectedMenuId}-${item.id}`}
+            onAdd={handleAddToCart}
+            onIncrease={handleIncrease}
+            onDecrease={(cartKey) => dispatch(decreaseCartItem(cartKey))}
+          />
         ))}
       </div>
     </div>
