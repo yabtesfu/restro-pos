@@ -5,6 +5,7 @@ const AppError = require("./utils/AppError");
 const asyncHandler = require("./middlewares/asyncHandler");
 const globalErrorHandler = require("./middlewares/globalErrorHandler");
 const notFound = require("./middlewares/notFound");
+const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 
@@ -18,6 +19,8 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.json({ message: "Hello from POS Server!" });
 });
+
+app.use("/api/auth", authRoutes);
 
 app.get(
   "/api/test-error",
